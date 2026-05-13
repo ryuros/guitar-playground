@@ -170,6 +170,14 @@ const STATIC_CHORDS = [
     fingers: [{ string: 1, fret: 1, finger: 1 }, { string: 2, fret: 2, finger: 2 }, { string: 4, fret: 3, finger: 3 }],
   },
   {
+    id: 'cm7b5', name: 'Cm7♭5', formula: '1-♭3-♭5-♭7', category: 'HALF DIM', type: 'm7b5',
+    strings: ['x', 3, 4, 3, 4, 'x'], startFret: 3, barre: null,
+    fingers: [
+      { string: 1, fret: 3, finger: 1 }, { string: 3, fret: 3, finger: 2 },
+      { string: 2, fret: 4, finger: 3 }, { string: 4, fret: 4, finger: 4 },
+    ],
+  },
+  {
     id: 'am7b5', name: 'Am7♭5', formula: '1-♭3-♭5-♭7', category: 'HALF DIM', type: 'm7b5',
     strings: ['x', 0, 1, 1, 1, 3], startFret: 1, barre: null,
     fingers: [{ string: 2, fret: 1, finger: 1 }, { string: 3, fret: 1, finger: 2 }, { string: 4, fret: 1, finger: 3 }, { string: 5, fret: 3, finger: 4 }],
