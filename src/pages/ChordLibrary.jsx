@@ -436,6 +436,8 @@ const TYPE_MAP = {
 };
 
 const ROOT_NOTES = ['C','C#','D','D#','E','F','F#','G','G#','A','A#','B'];
+const FLAT_EQUIV = { 'C#':'D♭', 'D#':'E♭', 'F#':'G♭', 'G#':'A♭', 'A#':'B♭' };
+const rootLabel = (r) => FLAT_EQUIV[r] ? `${r}(${FLAT_EQUIV[r]})` : r;
 const QUALITY_OPTIONS = ['All', 'Major', 'maj7', '7', 'add9', 'sus4', '7sus4', 'minor', 'm7', 'aug', '5', 'dim7', 'm7♭5'];
 
 const getChordRoot = (name) => {
@@ -444,7 +446,7 @@ const getChordRoot = (name) => {
 };
 
 // ── Filter row ──────────────────────────────────────────────────────────────
-function FilterRow({ label, options, selected, onSelect }) {
+function FilterRow({ label, options, selected, onSelect, labelFn }) {
   return (
     <div className="flex items-start gap-3 px-4 py-3">
       <span className="text-[11px] font-label-caps text-on-surface-variant shrink-0 mt-0.5 w-12">{label}</span>
@@ -459,7 +461,7 @@ function FilterRow({ label, options, selected, onSelect }) {
                 : 'text-on-surface-variant hover:text-on-surface font-normal'
             }`}
           >
-            {opt}
+            {labelFn ? labelFn(opt) : opt}
           </button>
         ))}
       </div>
@@ -573,7 +575,7 @@ export default function ChordLibrary() {
 
         {/* 3-row cascade filters */}
         <div className="mb-6 bg-surface-container rounded-xl border border-surface-variant divide-y divide-surface-variant overflow-hidden">
-          <FilterRow label="Root" options={rootOptions} selected={selectedRoot} onSelect={handleRootChange} />
+          <FilterRow label="Root" options={rootOptions} selected={selectedRoot} onSelect={handleRootChange} labelFn={rootLabel} />
           <FilterRow label="Quality" options={QUALITY_OPTIONS} selected={selectedQuality} onSelect={handleQualityChange} />
           <FilterRow label="Position" options={positionOptions} selected={selectedPosition} onSelect={setSelectedPosition} />
         </div>
