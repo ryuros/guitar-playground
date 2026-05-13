@@ -220,7 +220,7 @@ export default function Metronome() {
       {/* 컨트롤 영역 */}
       <div className="bg-[#252828] border-t border-[#343737] shrink-0" onClick={e => e.stopPropagation()}>
         {/* BPM 조절 */}
-        <div className="flex items-center justify-center gap-2 py-5 px-8">
+        <div className="flex items-center justify-center gap-2 py-3 md:py-5 px-8">
           {/* −10 */}
           <button
             onClick={() => adjustBpm(-10)}
@@ -249,13 +249,13 @@ export default function Metronome() {
                 onChange={e => setBpmInput(e.target.value)}
                 onBlur={commitBpmEdit}
                 onKeyDown={handleBpmKeyDown}
-                className="text-[72px] font-bold text-on-surface leading-none w-40 text-center tabular-nums bg-transparent outline-none border-b-2 border-primary"
+                className="text-[52px] md:text-[72px] font-bold text-on-surface leading-none w-32 md:w-40 text-center tabular-nums bg-transparent outline-none border-b-2 border-primary"
                 style={{ appearance: 'textfield', MozAppearance: 'textfield' }}
               />
             ) : (
               <span
                 onClick={startBpmEdit}
-                className="text-[72px] font-bold text-on-surface leading-none w-40 text-center tabular-nums cursor-text"
+                className="text-[52px] md:text-[72px] font-bold text-on-surface leading-none w-32 md:w-40 text-center tabular-nums cursor-text"
                 title="클릭하여 직접 입력"
               >
                 {bpm}

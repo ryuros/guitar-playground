@@ -16,7 +16,7 @@ export default function Layout({ children }) {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
-    <div className="bg-background text-on-background min-h-screen flex">
+    <div className="bg-background text-on-background h-screen overflow-hidden flex">
       <SideNav />
 
       {/* Mobile overlay */}
@@ -52,7 +52,7 @@ export default function Layout({ children }) {
         </div>
       )}
 
-      <div className="flex-1 flex flex-col min-h-screen">
+      <div className="flex-1 flex flex-col overflow-hidden">
         {/* Mobile header */}
         <header className="md:hidden flex justify-between items-center px-4 h-16 bg-surface-container shrink-0 sticky top-0 z-10">
           <span className="text-[18px] font-label-caps text-on-surface-variant tracking-widest">Guitar Playground</span>
@@ -63,7 +63,7 @@ export default function Layout({ children }) {
           </div>
         </header>
 
-        <main className="flex-1">
+        <main className="flex-1 overflow-hidden">
           {children}
         </main>
       </div>
