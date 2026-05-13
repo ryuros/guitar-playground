@@ -242,7 +242,10 @@ export default function Metronome() {
 
           {/* BPM 표시 / 직접 입력 */}
           <div className="flex items-center gap-2">
-            <span className="text-[#6b7280] text-sm">{noteValue.symbol} =</span>
+            <span className="inline-flex items-center gap-1 text-[#6b7280] text-sm leading-none">
+              <span style={{ lineHeight: 1 }}>{noteValue.symbol}</span>
+              <span>=</span>
+            </span>
             {isEditingBpm ? (
               <input
                 autoFocus
