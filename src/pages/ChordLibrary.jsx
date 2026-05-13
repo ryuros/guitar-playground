@@ -541,7 +541,12 @@ export default function ChordLibrary() {
         c.category.toLowerCase().includes(q);
       return matchesPosition && matchesQuery;
     })
-    .sort((a, b) => a.name.localeCompare(b.name));
+    .sort((a, b) => {
+      const pa = POSITION_ORDER.indexOf(getPosition(a));
+      const pb = POSITION_ORDER.indexOf(getPosition(b));
+      if (pa !== pb) return pa - pb;
+      return a.name.localeCompare(b.name);
+    });
 
   return (
     <div className="flex-1 flex flex-col h-full overflow-y-auto">
