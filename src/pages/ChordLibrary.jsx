@@ -441,7 +441,7 @@ const rootLabel = (r) => {
   if (!FLAT_EQUIV[r]) return r;
   return (
     <span className="inline-flex items-end gap-[1px]">
-      <span>{r}</span>
+      <span className="text-[14px]">{r}</span>
       <span className="text-[9px] leading-[1.4]">({FLAT_EQUIV[r]})</span>
     </span>
   );
