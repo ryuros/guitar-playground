@@ -437,7 +437,15 @@ const TYPE_MAP = {
 
 const ROOT_NOTES = ['C','C#','D','D#','E','F','F#','G','G#','A','A#','B'];
 const FLAT_EQUIV = { 'C#':'D♭', 'D#':'E♭', 'F#':'G♭', 'G#':'A♭', 'A#':'B♭' };
-const rootLabel = (r) => FLAT_EQUIV[r] ? `${r}(${FLAT_EQUIV[r]})` : r;
+const rootLabel = (r) => {
+  if (!FLAT_EQUIV[r]) return r;
+  return (
+    <span className="inline-flex items-end gap-[1px]">
+      <span>{r}</span>
+      <span className="text-[9px] leading-[1.4]">({FLAT_EQUIV[r]})</span>
+    </span>
+  );
+};
 const QUALITY_OPTIONS = ['All', 'Major', 'maj7', '7', 'add9', 'sus4', '7sus4', 'minor', 'm7', 'aug', '5', 'dim7', 'm7♭5'];
 
 const getChordRoot = (name) => {
