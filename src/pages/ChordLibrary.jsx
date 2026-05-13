@@ -552,8 +552,11 @@ function ChordCard({ chord }) {
   return (
     <div className="bg-surface-container-high rounded-xl p-5 flex flex-col gap-3">
       <div>
-        <h3 className="text-headline-md font-headline-md text-on-surface">{chord.name}</h3>
-        <div className="flex justify-between items-center mt-0.5">
+        <div className="flex items-baseline justify-between gap-4 mb-0.5">
+          <h3 className="text-headline-md font-headline-md text-on-surface">{chord.name}</h3>
+          <span className="text-mono-data font-mono-data text-on-surface-variant text-xs shrink-0">{chord.formula}</span>
+        </div>
+        <div className="flex justify-between items-center">
           <span className="text-label-caps font-label-caps text-[#4dd0e1] tracking-wider text-[11px] whitespace-nowrap">
             {chord.category}
           </span>
@@ -561,9 +564,6 @@ function ChordCard({ chord }) {
             {chord.startFret > 1 ? `${chord.startFret}fr` : ''}
           </span>
         </div>
-        <span className="text-mono-data font-mono-data text-on-surface-variant text-[10px] mt-0.5 block">
-          {chord.formula}
-        </span>
       </div>
       <div className="w-full px-2 pt-1">
         <ChordDiagram
