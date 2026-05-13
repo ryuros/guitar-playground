@@ -224,8 +224,8 @@ export default function Metronome() {
           {/* −10 */}
           <button
             onClick={() => adjustBpm(-10)}
-            className="text-[10px] text-white/50 flex items-center justify-center font-bold select-none transition-colors shrink-0"
-            style={{ width: 29, height: 29, borderRadius: '50%', background: 'rgba(138,180,216,0.1)' }}
+            className="text-[10px] flex items-center justify-center font-bold select-none shrink-0"
+            style={{ width: 29, height: 29, borderRadius: '50%', background: 'rgba(138,180,216,0.1)', color: 'rgba(255,255,255,0.5)' }}
           >−10</button>
 
           {/* −1 */}
@@ -277,8 +277,8 @@ export default function Metronome() {
           {/* +10 */}
           <button
             onClick={() => adjustBpm(10)}
-            className="text-[10px] text-white/50 flex items-center justify-center font-bold select-none transition-colors shrink-0"
-            style={{ width: 29, height: 29, borderRadius: '50%', background: 'rgba(138,180,216,0.1)' }}
+            className="text-[10px] flex items-center justify-center font-bold select-none shrink-0"
+            style={{ width: 29, height: 29, borderRadius: '50%', background: 'rgba(138,180,216,0.1)', color: 'rgba(255,255,255,0.5)' }}
           >+10</button>
         </div>
 
@@ -287,7 +287,7 @@ export default function Metronome() {
         {/* 하단: 템포명 / 재생 / TAP */}
         <div className="relative flex items-center px-8 py-4" style={{ minHeight: 80 + 32 + 16 }}>
           {/* 템포명 + 박자 — 선택 가능 */}
-          <div className="flex-1 flex flex-row items-center gap-3 relative">
+          <div className="flex-1 flex flex-row items-center gap-1.5 relative">
             {/* 템포명 */}
             <button
               onClick={e => { e.stopPropagation(); setShowTempoMenu(p => !p); setShowTimeSigMenu(false); }}
