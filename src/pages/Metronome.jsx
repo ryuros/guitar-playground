@@ -99,7 +99,6 @@ export default function Metronome() {
   }, [scheduleClick]);
 
   const start = useCallback(() => {
-    // 기존 interval이 남아있으면 반드시 먼저 정리
     clearInterval(schedulerRef.current);
     generationRef.current += 1;
     scheduledNodesRef.current.forEach(osc => {
@@ -107,11 +106,7 @@ export default function Metronome() {
     });
     scheduledNodesRef.current = [];
 
-    if (!audioCtxRef.current) {
-      audioCtxRef.current = new (window.AudioContext || window.webkitAudioContext)();
-    }
     const ctx = audioCtxRef.current;
-    if (ctx.state === 'suspended') ctx.resume();
     currentBeatRef.current = 0;
     nextBeatTimeRef.current = ctx.currentTime + 0.05;
     schedulerRef.current = setInterval(scheduler, 25);
@@ -129,6 +124,13 @@ export default function Metronome() {
   }, []);
 
   const toggle = useCallback(() => {
+    // iOS Safari: AudioContext must be created/resumed synchronously in user gesture
+    if (!audioCtxRef.current) {
+      audioCtxRef.current = new (window.AudioContext || window.webkitAudioContext)();
+    }
+    const ctx = audioCtxRef.current;
+    if (ctx.state === 'suspended') ctx.resume();
+
     setIsPlaying(prev => {
       if (prev) { stop(); return false; }
       else { start(); return true; }
