@@ -37,6 +37,13 @@ function ChordDiagram({ strings, fingers, barre, startFret = 1 }) {
         <line x1={sx(0)} y1={MT} x2={sx(5)} y2={MT} stroke="#6b7280" strokeWidth="3" strokeLinecap="round" />
       )}
 
+      {/* Fret position label */}
+      {startFret > 1 && (
+        <text x={sx(5) + 6} y={MT + FH * 0.5 + 3} textAnchor="start" fontSize="9" fill="#6b7280" fontFamily="monospace">
+          {startFret}fr
+        </text>
+      )}
+
       {/* Strings */}
       {Array.from({ length: STR_COUNT }, (_, i) => (
         <line key={i} x1={sx(i)} y1={MT} x2={sx(i)} y2={MT + FH * FRET_COUNT}
@@ -553,14 +560,9 @@ function ChordCard({ chord }) {
     <div className="bg-surface-container-high rounded-xl p-5 flex flex-col gap-3">
       <div>
         <h3 className="text-headline-md font-headline-md text-on-surface">{chord.name}</h3>
-        <div className="flex justify-between items-center mt-0.5">
-          <span className="text-label-caps font-label-caps text-[#4dd0e1] tracking-wider text-[11px] whitespace-nowrap">
-            {chord.category}
-          </span>
-          <span className="text-mono-data text-[10px] text-on-surface-variant">
-            {chord.startFret > 1 ? `${chord.startFret}fr` : ''}
-          </span>
-        </div>
+        <span className="text-label-caps font-label-caps text-[#4dd0e1] tracking-wider text-[11px] mt-0.5 block">
+          {chord.category}
+        </span>
         <span className="text-mono-data font-mono-data text-on-surface-variant text-[10px] mt-0.5 block">
           {chord.formula}
         </span>
