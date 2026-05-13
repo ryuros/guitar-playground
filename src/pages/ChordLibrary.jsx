@@ -109,13 +109,7 @@ const STATIC_CHORDS = [
     strings: [0, 2, 2, 1, 0, 0], startFret: 1, barre: null,
     fingers: [{ string: 3, fret: 1, finger: 1 }, { string: 1, fret: 2, finger: 2 }, { string: 2, fret: 2, finger: 3 }],
   },
-  {
-    id: 'f-major', name: 'F Major', formula: '1-3-5', category: 'BARRE', type: 'Major',
-    strings: [1, 3, 3, 2, 1, 1], startFret: 1,
-    barre: { fret: 1, fromString: 0, toString: 5 },
-    fingers: [{ string: 3, fret: 2, finger: 2 }, { string: 1, fret: 3, finger: 3 }, { string: 2, fret: 3, finger: 4 }],
-  },
-  {
+{
     id: 'd-major', name: 'D Major', formula: '1-3-5', category: 'STANDARD', type: 'Major',
     strings: ['x', 'x', 0, 2, 3, 2], startFret: 1, barre: null,
     fingers: [{ string: 3, fret: 2, finger: 1 }, { string: 5, fret: 2, finger: 2 }, { string: 4, fret: 3, finger: 3 }],
