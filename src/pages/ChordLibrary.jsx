@@ -100,6 +100,31 @@ const STATIC_CHORDS = [
     fingers: [{ string: 5, fret: 1, finger: 1 }, { string: 1, fret: 2, finger: 2 }, { string: 0, fret: 3, finger: 3 }],
   },
   {
+    id: 'a7', name: 'A7', formula: '1-3-5-♭7', category: 'DOMINANT', type: 'dom7',
+    strings: ['x', 0, 2, 0, 2, 0], startFret: 1, barre: null,
+    fingers: [{ string: 2, fret: 2, finger: 2 }, { string: 4, fret: 2, finger: 3 }],
+  },
+  {
+    id: 'b7', name: 'B7', formula: '1-3-5-♭7', category: 'DOMINANT', type: 'dom7',
+    strings: ['x', 2, 1, 2, 0, 2], startFret: 1, barre: null,
+    fingers: [{ string: 2, fret: 1, finger: 1 }, { string: 1, fret: 2, finger: 2 }, { string: 3, fret: 2, finger: 3 }, { string: 5, fret: 2, finger: 4 }],
+  },
+  {
+    id: 'c7', name: 'C7', formula: '1-3-5-♭7', category: 'DOMINANT', type: 'dom7',
+    strings: ['x', 3, 2, 3, 1, 0], startFret: 1, barre: null,
+    fingers: [{ string: 4, fret: 1, finger: 1 }, { string: 2, fret: 2, finger: 2 }, { string: 1, fret: 3, finger: 3 }, { string: 3, fret: 3, finger: 4 }],
+  },
+  {
+    id: 'd7', name: 'D7', formula: '1-3-5-♭7', category: 'DOMINANT', type: 'dom7',
+    strings: ['x', 'x', 0, 2, 1, 2], startFret: 1, barre: null,
+    fingers: [{ string: 4, fret: 1, finger: 1 }, { string: 3, fret: 2, finger: 2 }, { string: 5, fret: 2, finger: 3 }],
+  },
+  {
+    id: 'e7', name: 'E7', formula: '1-3-5-♭7', category: 'DOMINANT', type: 'dom7',
+    strings: [0, 2, 0, 1, 0, 0], startFret: 1, barre: null,
+    fingers: [{ string: 3, fret: 1, finger: 1 }, { string: 1, fret: 2, finger: 2 }],
+  },
+  {
     id: 'amaj7', name: 'Amaj7', formula: '1-3-5-7', category: 'MAJOR 7TH', type: 'maj7',
     strings: ['x', 0, 2, 1, 2, 0], startFret: 1, barre: null,
     fingers: [{ string: 3, fret: 1, finger: 1 }, { string: 2, fret: 2, finger: 2 }, { string: 4, fret: 2, finger: 3 }],
@@ -148,6 +173,32 @@ const STATIC_CHORDS = [
     fingers: [{ string: 4, fret: 1, finger: 1 }, { string: 2, fret: 2, finger: 2 }],
   },
   {
+    id: 'dm7', name: 'Dm7', formula: '1-♭3-5-♭7', category: 'MINOR 7TH', type: 'm7',
+    strings: ['x', 'x', 0, 2, 1, 1], startFret: 1,
+    barre: { fret: 1, fromString: 4, toString: 5 },
+    fingers: [{ string: 3, fret: 2, finger: 2 }],
+  },
+  {
+    id: 'em7', name: 'Em7', formula: '1-♭3-5-♭7', category: 'MINOR 7TH', type: 'm7',
+    strings: [0, 2, 0, 0, 0, 0], startFret: 1, barre: null,
+    fingers: [{ string: 1, fret: 2, finger: 1 }],
+  },
+  {
+    id: 'dmaj7', name: 'Dmaj7', formula: '1-3-5-7', category: 'MAJOR 7TH', type: 'maj7',
+    strings: ['x', 'x', 0, 2, 2, 2], startFret: 1, barre: null,
+    fingers: [{ string: 3, fret: 2, finger: 1 }, { string: 4, fret: 2, finger: 2 }, { string: 5, fret: 2, finger: 3 }],
+  },
+  {
+    id: 'emaj7', name: 'Emaj7', formula: '1-3-5-7', category: 'MAJOR 7TH', type: 'maj7',
+    strings: [0, 2, 1, 1, 0, 0], startFret: 1, barre: null,
+    fingers: [{ string: 2, fret: 1, finger: 1 }, { string: 3, fret: 1, finger: 2 }, { string: 1, fret: 2, finger: 3 }],
+  },
+  {
+    id: 'gmaj7', name: 'Gmaj7', formula: '1-3-5-7', category: 'MAJOR 7TH', type: 'maj7',
+    strings: [3, 2, 0, 0, 0, 2], startFret: 1, barre: null,
+    fingers: [{ string: 1, fret: 2, finger: 1 }, { string: 5, fret: 2, finger: 2 }, { string: 0, fret: 3, finger: 3 }],
+  },
+  {
     id: 'cmaj9', name: 'Cmaj9', formula: '1-3-5-7-9', category: 'MAJOR 9TH', type: 'maj7',
     strings: ['x', 3, 2, 0, 3, 0], startFret: 1, barre: null,
     fingers: [{ string: 2, fret: 2, finger: 2 }, { string: 1, fret: 3, finger: 3 }, { string: 4, fret: 3, finger: 4 }],
@@ -181,6 +232,17 @@ const STATIC_CHORDS = [
     id: 'am7b5', name: 'Am7♭5', formula: '1-♭3-♭5-♭7', category: 'HALF DIM', type: 'm7b5',
     strings: ['x', 0, 1, 1, 1, 3], startFret: 1, barre: null,
     fingers: [{ string: 2, fret: 1, finger: 1 }, { string: 3, fret: 1, finger: 2 }, { string: 4, fret: 1, finger: 3 }, { string: 5, fret: 3, finger: 4 }],
+  },
+  {
+    id: 'dm7b5', name: 'Dm7♭5', formula: '1-♭3-♭5-♭7', category: 'HALF DIM', type: 'm7b5',
+    strings: ['x', 'x', 0, 1, 1, 1], startFret: 1,
+    barre: { fret: 1, fromString: 3, toString: 5 },
+    fingers: [],
+  },
+  {
+    id: 'bm7b5', name: 'Bm7♭5', formula: '1-♭3-♭5-♭7', category: 'HALF DIM', type: 'm7b5',
+    strings: ['x', 2, 3, 2, 3, 'x'], startFret: 2, barre: null,
+    fingers: [{ string: 1, fret: 2, finger: 1 }, { string: 3, fret: 2, finger: 2 }, { string: 2, fret: 3, finger: 3 }, { string: 4, fret: 3, finger: 4 }],
   },
   {
     id: 'bdim', name: 'Bdim', formula: '1-♭3-♭5', category: 'DIMINISHED', type: 'dim7',
