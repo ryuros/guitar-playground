@@ -552,17 +552,17 @@ function ChordCard({ chord }) {
   return (
     <div className="bg-surface-container-high rounded-xl p-5 flex flex-col gap-3">
       <div>
-        <div className="flex justify-between items-baseline mb-1">
-          <h3 className="text-headline-md font-headline-md text-on-surface">{chord.name}</h3>
-          <span className="text-mono-data font-mono-data text-on-surface-variant text-sm">{chord.formula}</span>
-        </div>
+        <h3 className="text-headline-md font-headline-md text-on-surface mb-1">{chord.name}</h3>
         <div className="flex justify-between items-center">
           <span className="text-label-caps font-label-caps text-[#4dd0e1] tracking-wider text-[11px]">
             {chord.category}
           </span>
-          {chord.startFret > 1 && (
-            <span className="text-mono-data text-[10px] text-on-surface-variant">{chord.startFret}fr</span>
-          )}
+          <div className="flex items-center gap-2">
+            <span className="text-mono-data font-mono-data text-on-surface-variant text-xs">{chord.formula}</span>
+            {chord.startFret > 1 && (
+              <span className="text-mono-data text-[10px] text-on-surface-variant">{chord.startFret}fr</span>
+            )}
+          </div>
         </div>
       </div>
       <div className="w-full px-2 pt-1">
