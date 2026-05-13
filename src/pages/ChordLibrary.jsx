@@ -557,9 +557,9 @@ function ChordCard({ chord }) {
           <span className="text-label-caps font-label-caps text-[#4dd0e1] tracking-wider text-[11px] whitespace-nowrap">
             {chord.category}
           </span>
-          {chord.startFret > 1 && (
-            <span className="text-mono-data text-[10px] text-on-surface-variant">{chord.startFret}fr</span>
-          )}
+          <span className="text-mono-data text-[10px] text-on-surface-variant">
+            {chord.startFret > 1 ? `${chord.startFret}fr` : ''}
+          </span>
         </div>
         <span className="text-mono-data font-mono-data text-on-surface-variant text-[10px] mt-0.5 block">
           {chord.formula}
