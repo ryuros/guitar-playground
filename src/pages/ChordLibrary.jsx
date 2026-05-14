@@ -558,9 +558,9 @@ function FilterRow({ label, options, selected, onSelect, labelFn }) {
 function ChordCard({ chord }) {
   return (
     <div className="bg-surface-container-high rounded-xl p-5 flex flex-col gap-3">
-      <div>
+      <div className="flex flex-col md:flex-row md:items-baseline md:justify-between gap-0.5 md:gap-3">
         <h3 className="text-headline-md font-headline-md text-on-surface">{chord.name}</h3>
-        <div className="flex flex-col md:flex-row md:items-baseline gap-0.5 md:gap-2 mt-0.5">
+        <div className="flex flex-col md:flex-row md:items-baseline gap-0.5 md:gap-3 md:shrink-0 md:text-right">
           <span className="text-label-caps font-label-caps text-[#4dd0e1] text-[11px]">{chord.category}</span>
           <span className="text-mono-data font-mono-data text-on-surface-variant text-[10px]">{chord.formula}</span>
         </div>
