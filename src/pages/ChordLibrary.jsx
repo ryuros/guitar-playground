@@ -512,6 +512,8 @@ const TYPE_MAP = {
   'm7♭5':   'm7b5',
 };
 
+const toSentenceCase = (s) => s.charAt(0).toUpperCase() + s.slice(1).toLowerCase();
+
 const ROOT_NOTES = ['C','C#','D','D#','E','F','F#','G','G#','A','A#','B'];
 const FLAT_EQUIV = { 'C#':'D♭', 'D#':'E♭', 'F#':'G♭', 'G#':'A♭', 'A#':'B♭' };
 const rootLabel = (r) => {
@@ -561,7 +563,7 @@ function ChordCard({ chord }) {
       <div>
         <h3 className="text-headline-md font-headline-md text-on-surface">{chord.name}</h3>
         <span className="text-label-caps font-label-caps text-[#4dd0e1] tracking-wider text-[11px] mt-0.5 block">
-          {chord.category}
+          {toSentenceCase(chord.category)}
         </span>
         <span className="text-mono-data font-mono-data text-on-surface-variant text-[10px] mt-0.5 block">
           {chord.formula}
