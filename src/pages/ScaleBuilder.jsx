@@ -145,7 +145,7 @@ export default function ScaleBuilder() {
                     {scaleNotes.map((n, i) => (
                       <div
                         key={i}
-                        className={`py-2 rounded text-center font-mono-data font-bold text-sm border ${
+                        className={`py-2 rounded-full text-center font-mono-data font-bold text-sm border ${
                           n.isRoot
                             ? 'bg-primary text-on-primary border-primary-container shadow-sm'
                             : 'bg-surface text-secondary border-surface-variant'

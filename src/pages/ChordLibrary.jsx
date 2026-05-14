@@ -525,6 +525,20 @@ const rootLabel = (r) => {
 };
 const QUALITY_OPTIONS = ['All', 'Major', 'maj7', '7', 'add9', 'sus4', '7sus4', 'minor', 'm7', 'aug', '5', 'dim7', 'm7♭5'];
 
+const displayChordName = (name) => {
+  const display = name.replace(/\s*Major$/, '').replace(/\s*Minor$/, 'm');
+  const match = display.match(/^([A-G]#)(.*)/);
+  if (match && FLAT_EQUIV[match[1]]) {
+    return (
+      <span className="inline-flex items-end gap-[2px]">
+        <span>{match[1]}{match[2]}</span>
+        <span className="text-[13px] leading-[1.8] font-normal">({FLAT_EQUIV[match[1]]}{match[2]})</span>
+      </span>
+    );
+  }
+  return display;
+};
+
 const getChordRoot = (name) => {
   const m = name.match(/^([A-G][#♭]?)/);
   return m ? m[1] : '';
@@ -533,17 +547,17 @@ const getChordRoot = (name) => {
 // ── Filter row ──────────────────────────────────────────────────────────────
 function FilterRow({ label, options, selected, onSelect, labelFn }) {
   return (
-    <div className="flex items-start gap-3 px-4 py-3">
-      <span className="text-[11px] font-label-caps text-on-surface-variant shrink-0 mt-0.5 w-12">{label}</span>
-      <div className="flex items-center gap-5 overflow-x-auto pb-0.5 min-w-0 flex-1" style={{ scrollbarWidth: 'none' }}>
+    <div className="flex items-center gap-3 py-1">
+      <span className="text-[12px] font-label-caps text-on-surface-variant shrink-0 w-12">{label}</span>
+      <div className="flex items-center overflow-x-auto pb-0.5 min-w-0 flex-1" style={{ scrollbarWidth: 'none', gap: 'calc(var(--spacing) * 2)' }}>
         {options.map(opt => (
           <button
             key={opt}
             onClick={() => onSelect(opt)}
-            className={`text-[14px] whitespace-nowrap shrink-0 transition-colors leading-none pb-0.5 ${
+            className={`text-[14px] whitespace-nowrap shrink-0 transition-colors leading-none rounded-full px-2 py-1.5 ${
               selected === opt
-                ? 'text-primary font-bold border-b border-primary'
-                : 'text-on-surface-variant hover:text-on-surface font-normal'
+                ? 'bg-primary text-white font-bold'
+                : 'text-on-surface hover:text-on-surface font-normal'
             }`}
           >
             {labelFn ? labelFn(opt) : opt}
@@ -558,10 +572,10 @@ function FilterRow({ label, options, selected, onSelect, labelFn }) {
 function ChordCard({ chord }) {
   return (
     <div className="bg-surface-container-high rounded-xl p-5 flex flex-col gap-3">
-      <div className="flex flex-col md:flex-row md:items-baseline md:justify-between gap-0.5 md:gap-3">
-        <h3 className="text-headline-md font-headline-md text-on-surface">{chord.name}</h3>
-        <div className="flex flex-col md:flex-row md:items-baseline gap-0.5 md:gap-3 md:shrink-0 md:text-right">
-          <span className="text-label-caps font-label-caps text-[#4dd0e1] text-[11px]">{chord.category}</span>
+      <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-0.5 md:gap-2">
+        <h3 className="text-headline-md font-headline-md text-on-surface">{displayChordName(chord.name)}</h3>
+        <div className="flex flex-col gap-0 md:items-end md:shrink-0">
+          <span className="text-label-caps font-label-caps text-[#9ca3af] text-[11px]">{chord.category}</span>
           <span className="text-mono-data font-mono-data text-on-surface-variant text-[10px]">{chord.formula}</span>
         </div>
       </div>
@@ -639,6 +653,7 @@ export default function ChordLibrary() {
         <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between mb-6">
           <h1 className="text-[24px] md:text-[32px] font-headline-lg text-on-surface">Chord Library</h1>
           <div className="flex items-center gap-2 bg-surface-container rounded-full px-4 py-1.5 focus-within:ring-1 focus-within:ring-outline transition-colors w-full sm:w-auto">
+            <span className="material-symbols-outlined text-[16px] text-on-surface-variant shrink-0" style={{ fontVariationSettings: "'wght' 300, 'OPSZ' 16" }}>search</span>
             <input
               type="text"
               value={query}
@@ -655,10 +670,24 @@ export default function ChordLibrary() {
         </div>
 
         {/* 3-row cascade filters */}
-        <div className="mb-6 bg-surface-container rounded-xl border border-surface-variant divide-y divide-surface-variant overflow-hidden">
+        <div className="mb-6 overflow-hidden">
           <FilterRow label="Root" options={rootOptions} selected={selectedRoot} onSelect={handleRootChange} labelFn={rootLabel} />
           <FilterRow label="Quality" options={QUALITY_OPTIONS} selected={selectedQuality} onSelect={handleQualityChange} />
           <FilterRow label="Position" options={positionOptions} selected={selectedPosition} onSelect={setSelectedPosition} />
+        </div>
+
+        {/* Result count + reset */}
+        <div className="flex items-center justify-between mb-4">
+          <span className="text-[13px] text-on-surface-variant">
+            총 <span className="text-primary font-bold">{filtered.length}</span>개의 코드가 검색되었습니다.
+          </span>
+          <button
+            onClick={() => { setSelectedRoot('All'); setSelectedQuality('All'); setSelectedPosition('All'); }}
+            className="flex items-center gap-1 text-[13px] text-on-surface-variant hover:text-on-surface transition-colors"
+          >
+            <span className="material-symbols-outlined text-[14px]" style={{ fontVariationSettings: "'wght' 300, 'OPSZ' 14" }}>refresh</span>
+            선택 초기화
+          </button>
         </div>
 
         {filtered.length > 0 ? (

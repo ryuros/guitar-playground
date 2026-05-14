@@ -115,13 +115,13 @@ export default function VoicingFinder() {
             <div className="hidden md:flex gap-4">
               <button
                 onClick={() => { setChordInput('D7'); setQuery('D7'); }}
-                className="px-4 py-2 bg-surface-variant border border-outline-variant rounded hover:border-primary text-on-surface text-label-caps font-label-caps transition-colors"
+                className="px-4 py-2 bg-surface-variant border border-outline-variant rounded-full hover:border-primary text-on-surface text-label-caps font-label-caps transition-colors"
               >
                 초기화
               </button>
               <button
                 onClick={handleApply}
-                className="px-6 py-2 bg-primary text-on-primary rounded text-label-caps font-label-caps font-bold hover:bg-primary-fixed transition-colors shadow-[0_0_8px_rgba(4,129,255,0.2)]"
+                className="px-6 py-2 bg-primary text-on-primary rounded-full text-label-caps font-label-caps font-bold hover:bg-primary-fixed transition-colors shadow-[0_0_8px_rgba(4,129,255,0.2)]"
               >
                 필터 적용
               </button>
@@ -168,9 +168,9 @@ export default function VoicingFinder() {
 
           <div className="md:hidden flex gap-4">
             <button onClick={() => { setChordInput('D7'); setQuery('D7'); }}
-              className="flex-1 py-3 bg-surface-variant border border-outline-variant rounded text-on-surface text-label-caps font-label-caps">초기화</button>
+              className="flex-1 py-3 bg-surface-variant border border-outline-variant rounded-full text-on-surface text-label-caps font-label-caps">초기화</button>
             <button onClick={handleApply}
-              className="flex-1 py-3 bg-primary text-on-primary rounded text-label-caps font-label-caps font-bold">필터 적용</button>
+              className="flex-1 py-3 bg-primary text-on-primary rounded-full text-label-caps font-label-caps font-bold">필터 적용</button>
           </div>
         </div>
       </section>

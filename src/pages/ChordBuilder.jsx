@@ -116,7 +116,7 @@ export default function ChordBuilder() {
                     <button
                       key={n}
                       onClick={() => { setRoot(n); setAccidental(''); }}
-                      className={`h-10 rounded font-mono-data text-sm font-bold transition-all ${
+                      className={`h-10 rounded-full font-mono-data text-sm font-bold transition-all ${
                         root === n && accidental === ''
                           ? 'bg-primary text-on-primary shadow-[0_0_8px_rgba(4,129,255,0.4)]'
                           : 'bg-surface-variant text-on-surface border border-outline-variant hover:bg-surface-bright'
@@ -131,7 +131,7 @@ export default function ChordBuilder() {
                     <button
                       key={a}
                       onClick={() => setAccidental(a === '♮' ? '' : (accidental === a ? '' : a))}
-                      className={`flex-1 py-1.5 rounded font-mono-data text-sm border transition-colors ${
+                      className={`flex-1 py-1.5 rounded-full font-mono-data text-sm border transition-colors ${
                         (a === '♮' && accidental === '') || accidental === a
                           ? 'bg-surface-variant text-on-surface border-primary'
                           : 'bg-surface-variant text-on-surface border-outline-variant hover:bg-surface-bright'

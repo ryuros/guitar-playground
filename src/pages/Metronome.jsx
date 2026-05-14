@@ -341,7 +341,7 @@ export default function Metronome() {
                     <button
                       key={ts.label}
                       onClick={() => selectTimeSig(ts)}
-                      className={`w-14 h-10 rounded border font-mono-data text-sm font-bold transition-colors ${
+                      className={`w-14 h-10 rounded-full border font-mono-data text-sm font-bold transition-colors ${
                         timeSig.label === ts.label
                           ? 'bg-primary text-on-primary border-primary'
                           : 'bg-[#2e3131] border-[#343737] text-on-surface-variant hover:text-on-surface hover:border-outline'
@@ -404,7 +404,7 @@ export default function Metronome() {
                     <button
                       key={nv.id}
                       onClick={e => { e.stopPropagation(); setNoteValue(nv); setShowNoteMenu(false); }}
-                      className="flex flex-col items-center justify-center gap-1 w-16 h-16 rounded border transition-colors"
+                      className="flex flex-col items-center justify-center gap-1 w-16 h-16 rounded-full border transition-colors"
                       style={{
                         backgroundColor: noteValue.id === nv.id ? 'rgba(4,129,255,0.15)' : '#2e3131',
                         borderColor: noteValue.id === nv.id ? '#0481FF' : '#343737',
