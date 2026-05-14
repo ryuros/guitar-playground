@@ -624,6 +624,9 @@ export default function ChordLibrary() {
       return matchesPosition && matchesQuery;
     })
     .sort((a, b) => {
+      const ra = ROOT_NOTES.indexOf(getChordRoot(a.name));
+      const rb = ROOT_NOTES.indexOf(getChordRoot(b.name));
+      if (ra !== rb) return ra - rb;
       const pa = POSITION_ORDER.indexOf(getPosition(a));
       const pb = POSITION_ORDER.indexOf(getPosition(b));
       if (pa !== pb) return pa - pb;
