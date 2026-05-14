@@ -571,7 +571,7 @@ function FilterRow({ label, options, selected, onSelect, labelFn }) {
 // ── Card components ─────────────────────────────────────────────────────────
 function ChordCard({ chord }) {
   return (
-    <div className="bg-surface-container-high rounded-xl p-5 flex flex-col gap-3">
+    <div className="bg-surface-container-high rounded-xl p-3 md:p-5 flex flex-col gap-2 md:gap-3">
       <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-0.5 md:gap-2">
         <h3 className="text-headline-md font-headline-md text-on-surface">{displayChordName(chord.name)}</h3>
         <div className="flex flex-col gap-0 md:items-end md:shrink-0">
@@ -579,7 +579,7 @@ function ChordCard({ chord }) {
           <span className="text-mono-data font-mono-data text-on-surface-variant text-[10px]">{chord.formula}</span>
         </div>
       </div>
-      <div className="w-full px-2 pt-1">
+      <div className="w-full md:px-2 pt-1">
         <ChordDiagram
           strings={chord.strings}
           fingers={chord.fingers}
@@ -691,7 +691,7 @@ export default function ChordLibrary() {
         </div>
 
         {filtered.length > 0 ? (
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4">
             {filtered.map(chord => (
               <ChordCard key={chord.id} chord={chord} />
             ))}
