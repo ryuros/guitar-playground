@@ -39,7 +39,7 @@ function ChordDiagram({ strings, fingers, barre, startFret = 1 }) {
 
       {/* Fret position label */}
       {startFret > 1 && (
-        <text x={sx(5) + 16} y={MT + FH * 0.5 + 3} textAnchor="start" fontSize="9" fill="#6b7280" fontFamily="monospace">
+        <text x={sx(5) + 12} y={MT + FH * 0.5 + 3} textAnchor="start" fontSize="8" fill="#6b7280" fontFamily="monospace">
           {startFret}fr
         </text>
       )}
