@@ -92,62 +92,62 @@ function ChordDiagram({ strings, fingers, barre, startFret = 1 }) {
 // strings: index 0 = low E … 5 = high e  |  'x' = muted, 0 = open, n = fret
 const STATIC_CHORDS = [
   {
-    id: 'c-major', name: 'C Major', formula: '1-3-5', category: 'STANDARD', type: 'Major',
+    id: 'c-major', name: 'C Major', formula: '1-3-5', category: 'Open position', type: 'Major',
     strings: ['x', 3, 2, 0, 1, 0], startFret: 1, barre: null,
     fingers: [{ string: 4, fret: 1, finger: 1 }, { string: 2, fret: 2, finger: 2 }, { string: 1, fret: 3, finger: 3 }],
   },
   {
-    id: 'd-minor', name: 'D Minor', formula: '1-♭3-5', category: 'STANDARD', type: 'minor',
+    id: 'd-minor', name: 'D Minor', formula: '1-♭3-5', category: 'Open position', type: 'minor',
     strings: ['x', 'x', 0, 2, 3, 1], startFret: 1, barre: null,
     fingers: [{ string: 5, fret: 1, finger: 1 }, { string: 3, fret: 2, finger: 2 }, { string: 4, fret: 3, finger: 3 }],
   },
   {
-    id: 'g7', name: 'G7', formula: '1-3-5-♭7', category: 'DOMINANT', type: 'dom7',
+    id: 'g7', name: 'G7', formula: '1-3-5-♭7', category: 'Open position', type: 'dom7',
     strings: [3, 2, 0, 0, 0, 1], startFret: 1, barre: null,
     fingers: [{ string: 5, fret: 1, finger: 1 }, { string: 1, fret: 2, finger: 2 }, { string: 0, fret: 3, finger: 3 }],
   },
   {
-    id: 'a7', name: 'A7', formula: '1-3-5-♭7', category: 'DOMINANT', type: 'dom7',
+    id: 'a7', name: 'A7', formula: '1-3-5-♭7', category: 'Open position', type: 'dom7',
     strings: ['x', 0, 2, 0, 2, 0], startFret: 1, barre: null,
     fingers: [{ string: 2, fret: 2, finger: 2 }, { string: 4, fret: 2, finger: 3 }],
   },
   {
-    id: 'b7', name: 'B7', formula: '1-3-5-♭7', category: 'DOMINANT', type: 'dom7',
+    id: 'b7', name: 'B7', formula: '1-3-5-♭7', category: 'Open position', type: 'dom7',
     strings: ['x', 2, 1, 2, 0, 2], startFret: 1, barre: null,
     fingers: [{ string: 2, fret: 1, finger: 1 }, { string: 1, fret: 2, finger: 2 }, { string: 3, fret: 2, finger: 3 }, { string: 5, fret: 2, finger: 4 }],
   },
   {
-    id: 'c7', name: 'C7', formula: '1-3-5-♭7', category: 'DOMINANT', type: 'dom7',
+    id: 'c7', name: 'C7', formula: '1-3-5-♭7', category: 'Open position', type: 'dom7',
     strings: ['x', 3, 2, 3, 1, 0], startFret: 1, barre: null,
     fingers: [{ string: 4, fret: 1, finger: 1 }, { string: 2, fret: 2, finger: 2 }, { string: 1, fret: 3, finger: 3 }, { string: 3, fret: 3, finger: 4 }],
   },
   {
-    id: 'd7', name: 'D7', formula: '1-3-5-♭7', category: 'DOMINANT', type: 'dom7',
+    id: 'd7', name: 'D7', formula: '1-3-5-♭7', category: 'Open position', type: 'dom7',
     strings: ['x', 'x', 0, 2, 1, 2], startFret: 1, barre: null,
     fingers: [{ string: 4, fret: 1, finger: 1 }, { string: 3, fret: 2, finger: 2 }, { string: 5, fret: 2, finger: 3 }],
   },
   {
-    id: 'e7', name: 'E7', formula: '1-3-5-♭7', category: 'DOMINANT', type: 'dom7',
+    id: 'e7', name: 'E7', formula: '1-3-5-♭7', category: 'Open position', type: 'dom7',
     strings: [0, 2, 0, 1, 0, 0], startFret: 1, barre: null,
     fingers: [{ string: 3, fret: 1, finger: 1 }, { string: 1, fret: 2, finger: 2 }],
   },
   {
-    id: 'amaj7', name: 'Amaj7', formula: '1-3-5-7', category: 'MAJOR 7TH', type: 'maj7',
+    id: 'amaj7', name: 'Amaj7', formula: '1-3-5-7', category: 'Open position', type: 'maj7',
     strings: ['x', 0, 2, 1, 2, 0], startFret: 1, barre: null,
     fingers: [{ string: 3, fret: 1, finger: 1 }, { string: 2, fret: 2, finger: 2 }, { string: 4, fret: 2, finger: 3 }],
   },
   {
-    id: 'e-major', name: 'E Major', formula: '1-3-5', category: 'STANDARD', type: 'Major',
+    id: 'e-major', name: 'E Major', formula: '1-3-5', category: 'Open position', type: 'Major',
     strings: [0, 2, 2, 1, 0, 0], startFret: 1, barre: null,
     fingers: [{ string: 3, fret: 1, finger: 1 }, { string: 1, fret: 2, finger: 2 }, { string: 2, fret: 2, finger: 3 }],
   },
 {
-    id: 'd-major', name: 'D Major', formula: '1-3-5', category: 'STANDARD', type: 'Major',
+    id: 'd-major', name: 'D Major', formula: '1-3-5', category: 'Open position', type: 'Major',
     strings: ['x', 'x', 0, 2, 3, 2], startFret: 1, barre: null,
     fingers: [{ string: 3, fret: 2, finger: 1 }, { string: 5, fret: 2, finger: 2 }, { string: 4, fret: 3, finger: 3 }],
   },
   {
-    id: 'g-major', name: 'G Major', formula: '1-3-5', category: 'STANDARD', type: 'Major',
+    id: 'g-major', name: 'G Major', formula: '1-3-5', category: 'Open position', type: 'Major',
     strings: [3, 2, 0, 0, 3, 3], startFret: 1, barre: null,
     fingers: [
       { string: 1, fret: 2, finger: 1 }, { string: 0, fret: 3, finger: 2 },
@@ -155,80 +155,80 @@ const STATIC_CHORDS = [
     ],
   },
   {
-    id: 'a-major', name: 'A Major', formula: '1-3-5', category: 'STANDARD', type: 'Major',
+    id: 'a-major', name: 'A Major', formula: '1-3-5', category: 'Open position', type: 'Major',
     strings: ['x', 0, 2, 2, 2, 0], startFret: 1, barre: null,
     fingers: [{ string: 2, fret: 2, finger: 1 }, { string: 3, fret: 2, finger: 2 }, { string: 4, fret: 2, finger: 3 }],
   },
   {
-    id: 'a-minor', name: 'A Minor', formula: '1-♭3-5', category: 'STANDARD', type: 'minor',
+    id: 'a-minor', name: 'A Minor', formula: '1-♭3-5', category: 'Open position', type: 'minor',
     strings: ['x', 0, 2, 2, 1, 0], startFret: 1, barre: null,
     fingers: [{ string: 4, fret: 1, finger: 1 }, { string: 2, fret: 2, finger: 2 }, { string: 3, fret: 2, finger: 3 }],
   },
   {
-    id: 'e-minor', name: 'E Minor', formula: '1-♭3-5', category: 'STANDARD', type: 'minor',
+    id: 'e-minor', name: 'E Minor', formula: '1-♭3-5', category: 'Open position', type: 'minor',
     strings: [0, 2, 2, 0, 0, 0], startFret: 1, barre: null,
     fingers: [{ string: 1, fret: 2, finger: 2 }, { string: 2, fret: 2, finger: 3 }],
   },
   {
-    id: 'cmaj7', name: 'Cmaj7', formula: '1-3-5-7', category: 'MAJOR 7TH', type: 'maj7',
+    id: 'cmaj7', name: 'Cmaj7', formula: '1-3-5-7', category: 'Open position', type: 'maj7',
     strings: ['x', 3, 2, 0, 0, 0], startFret: 1, barre: null,
     fingers: [{ string: 2, fret: 2, finger: 2 }, { string: 1, fret: 3, finger: 3 }],
   },
   {
-    id: 'am7', name: 'Am7', formula: '1-♭3-5-♭7', category: 'MINOR 7TH', type: 'm7',
+    id: 'am7', name: 'Am7', formula: '1-♭3-5-♭7', category: 'Open position', type: 'm7',
     strings: ['x', 0, 2, 0, 1, 0], startFret: 1, barre: null,
     fingers: [{ string: 4, fret: 1, finger: 1 }, { string: 2, fret: 2, finger: 2 }],
   },
   {
-    id: 'dm7', name: 'Dm7', formula: '1-♭3-5-♭7', category: 'MINOR 7TH', type: 'm7',
+    id: 'dm7', name: 'Dm7', formula: '1-♭3-5-♭7', category: 'Open position', type: 'm7',
     strings: ['x', 'x', 0, 2, 1, 1], startFret: 1,
     barre: { fret: 1, fromString: 4, toString: 5 },
     fingers: [{ string: 3, fret: 2, finger: 2 }],
   },
   {
-    id: 'em7', name: 'Em7', formula: '1-♭3-5-♭7', category: 'MINOR 7TH', type: 'm7',
+    id: 'em7', name: 'Em7', formula: '1-♭3-5-♭7', category: 'Open position', type: 'm7',
     strings: [0, 2, 0, 0, 0, 0], startFret: 1, barre: null,
     fingers: [{ string: 1, fret: 2, finger: 1 }],
   },
   {
-    id: 'dmaj7', name: 'Dmaj7', formula: '1-3-5-7', category: 'MAJOR 7TH', type: 'maj7',
+    id: 'dmaj7', name: 'Dmaj7', formula: '1-3-5-7', category: 'Open position', type: 'maj7',
     strings: ['x', 'x', 0, 2, 2, 2], startFret: 1, barre: null,
     fingers: [{ string: 3, fret: 2, finger: 1 }, { string: 4, fret: 2, finger: 2 }, { string: 5, fret: 2, finger: 3 }],
   },
   {
-    id: 'emaj7', name: 'Emaj7', formula: '1-3-5-7', category: 'MAJOR 7TH', type: 'maj7',
+    id: 'emaj7', name: 'Emaj7', formula: '1-3-5-7', category: 'Open position', type: 'maj7',
     strings: [0, 2, 1, 1, 0, 0], startFret: 1, barre: null,
     fingers: [{ string: 2, fret: 1, finger: 1 }, { string: 3, fret: 1, finger: 2 }, { string: 1, fret: 2, finger: 3 }],
   },
   {
-    id: 'gmaj7', name: 'Gmaj7', formula: '1-3-5-7', category: 'MAJOR 7TH', type: 'maj7',
+    id: 'gmaj7', name: 'Gmaj7', formula: '1-3-5-7', category: 'Open position', type: 'maj7',
     strings: [3, 2, 0, 0, 0, 2], startFret: 1, barre: null,
     fingers: [{ string: 1, fret: 2, finger: 1 }, { string: 5, fret: 2, finger: 2 }, { string: 0, fret: 3, finger: 3 }],
   },
   {
-    id: 'cmaj9', name: 'Cmaj9', formula: '1-3-5-7-9', category: 'MAJOR 9TH', type: 'maj7',
+    id: 'cmaj9', name: 'Cmaj9', formula: '1-3-5-7-9', category: 'Open position', type: 'maj7',
     strings: ['x', 3, 2, 0, 3, 0], startFret: 1, barre: null,
     fingers: [{ string: 2, fret: 2, finger: 2 }, { string: 1, fret: 3, finger: 3 }, { string: 4, fret: 3, finger: 4 }],
   },
   {
-    id: 'dm9', name: 'Dm9', formula: '1-♭3-5-♭7-9', category: 'MINOR 9TH', type: 'm7',
+    id: 'dm9', name: 'Dm9', formula: '1-♭3-5-♭7-9', category: 'Alternative voicing', type: 'm7',
     strings: ['x', 5, 7, 5, 6, 5], startFret: 5,
     barre: { fret: 5, fromString: 1, toString: 5 },
     fingers: [{ string: 4, fret: 6, finger: 2 }, { string: 2, fret: 7, finger: 4 }],
   },
   {
-    id: 'g7sharp9', name: 'G7#9', formula: '1-3-5-♭7-#9', category: 'DOMINANT ALT', type: 'dom7',
+    id: 'g7sharp9', name: 'G7#9', formula: '1-3-5-♭7-#9', category: 'Alternative voicing', type: 'dom7',
     strings: ['x', 'x', 3, 4, 3, 'x'], startFret: 3,
     barre: { fret: 3, fromString: 2, toString: 4 },
     fingers: [{ string: 3, fret: 4, finger: 3 }],
   },
   {
-    id: 'em7b5', name: 'Em7♭5', formula: '1-♭3-♭5-♭7', category: 'HALF DIM', type: 'm7b5',
+    id: 'em7b5', name: 'Em7♭5', formula: '1-♭3-♭5-♭7', category: 'Open position', type: 'm7b5',
     strings: [0, 1, 2, 0, 3, 0], startFret: 1, barre: null,
     fingers: [{ string: 1, fret: 1, finger: 1 }, { string: 2, fret: 2, finger: 2 }, { string: 4, fret: 3, finger: 3 }],
   },
   {
-    id: 'cm7b5', name: 'Cm7♭5', formula: '1-♭3-♭5-♭7', category: 'HALF DIM', type: 'm7b5',
+    id: 'cm7b5', name: 'Cm7♭5', formula: '1-♭3-♭5-♭7', category: 'Movable shape', type: 'm7b5',
     strings: ['x', 3, 4, 3, 4, 'x'], startFret: 3, barre: null,
     fingers: [
       { string: 1, fret: 3, finger: 1 }, { string: 3, fret: 3, finger: 2 },
@@ -236,168 +236,168 @@ const STATIC_CHORDS = [
     ],
   },
   {
-    id: 'am7b5', name: 'Am7♭5', formula: '1-♭3-♭5-♭7', category: 'HALF DIM', type: 'm7b5',
+    id: 'am7b5', name: 'Am7♭5', formula: '1-♭3-♭5-♭7', category: 'Open position', type: 'm7b5',
     strings: ['x', 0, 1, 1, 1, 3], startFret: 1, barre: null,
     fingers: [{ string: 2, fret: 1, finger: 1 }, { string: 3, fret: 1, finger: 2 }, { string: 4, fret: 1, finger: 3 }, { string: 5, fret: 3, finger: 4 }],
   },
   {
-    id: 'dm7b5', name: 'Dm7♭5', formula: '1-♭3-♭5-♭7', category: 'HALF DIM', type: 'm7b5',
+    id: 'dm7b5', name: 'Dm7♭5', formula: '1-♭3-♭5-♭7', category: 'Open position', type: 'm7b5',
     strings: ['x', 'x', 0, 1, 1, 1], startFret: 1,
     barre: { fret: 1, fromString: 3, toString: 5 },
     fingers: [],
   },
   {
-    id: 'bm7b5', name: 'Bm7♭5', formula: '1-♭3-♭5-♭7', category: 'HALF DIM', type: 'm7b5',
+    id: 'bm7b5', name: 'Bm7♭5', formula: '1-♭3-♭5-♭7', category: 'Movable shape', type: 'm7b5',
     strings: ['x', 2, 3, 2, 3, 'x'], startFret: 2, barre: null,
     fingers: [{ string: 1, fret: 2, finger: 1 }, { string: 3, fret: 2, finger: 2 }, { string: 2, fret: 3, finger: 3 }, { string: 4, fret: 3, finger: 4 }],
   },
   {
-    id: 'bdim', name: 'Bdim', formula: '1-♭3-♭5', category: 'DIMINISHED', type: 'dim7',
+    id: 'bdim', name: 'Bdim', formula: '1-♭3-♭5', category: 'Movable shape', type: 'dim7',
     strings: ['x', 2, 3, 4, 3, 'x'], startFret: 1, barre: null,
     fingers: [{ string: 1, fret: 2, finger: 1 }, { string: 2, fret: 3, finger: 2 }, { string: 4, fret: 3, finger: 3 }, { string: 3, fret: 4, finger: 4 }],
   },
   {
-    id: 'adim7', name: 'Adim7', formula: '1-♭3-♭5-𝄫7', category: 'DIMINISHED', type: 'dim7',
+    id: 'adim7', name: 'Adim7', formula: '1-♭3-♭5-𝄫7', category: 'Open position', type: 'dim7',
     strings: ['x', 0, 1, 2, 1, 2], startFret: 1, barre: null,
     fingers: [{ string: 2, fret: 1, finger: 1 }, { string: 4, fret: 1, finger: 2 }, { string: 3, fret: 2, finger: 3 }, { string: 5, fret: 2, finger: 4 }],
   },
   // ── add9 ──
   {
-    id: 'cadd9', name: 'Cadd9', formula: '1-3-5-9', category: 'ADD 9', type: 'add9',
+    id: 'cadd9', name: 'Cadd9', formula: '1-3-5-9', category: 'Open position', type: 'add9',
     strings: ['x', 3, 2, 0, 3, 0], startFret: 1, barre: null,
     fingers: [{ string: 2, fret: 2, finger: 2 }, { string: 1, fret: 3, finger: 3 }, { string: 4, fret: 3, finger: 4 }],
   },
   {
-    id: 'dadd9', name: 'Dadd9', formula: '1-3-5-9', category: 'ADD 9', type: 'add9',
+    id: 'dadd9', name: 'Dadd9', formula: '1-3-5-9', category: 'Open position', type: 'add9',
     strings: ['x', 'x', 0, 2, 3, 0], startFret: 1, barre: null,
     fingers: [{ string: 3, fret: 2, finger: 1 }, { string: 4, fret: 3, finger: 2 }],
   },
   {
-    id: 'gadd9', name: 'Gadd9', formula: '1-3-5-9', category: 'ADD 9', type: 'add9',
+    id: 'gadd9', name: 'Gadd9', formula: '1-3-5-9', category: 'Open position', type: 'add9',
     strings: [3, 'x', 0, 2, 3, 3], startFret: 1, barre: null,
     fingers: [{ string: 0, fret: 3, finger: 2 }, { string: 3, fret: 2, finger: 1 }, { string: 4, fret: 3, finger: 3 }, { string: 5, fret: 3, finger: 4 }],
   },
   {
-    id: 'eadd9', name: 'Eadd9', formula: '1-3-5-9', category: 'ADD 9', type: 'add9',
+    id: 'eadd9', name: 'Eadd9', formula: '1-3-5-9', category: 'Open position', type: 'add9',
     strings: [0, 2, 2, 1, 0, 2], startFret: 1, barre: null,
     fingers: [{ string: 3, fret: 1, finger: 1 }, { string: 1, fret: 2, finger: 2 }, { string: 2, fret: 2, finger: 3 }, { string: 5, fret: 2, finger: 4 }],
   },
   {
-    id: 'aadd9', name: 'Aadd9', formula: '1-3-5-9', category: 'ADD 9', type: 'add9',
+    id: 'aadd9', name: 'Aadd9', formula: '1-3-5-9', category: 'Open position', type: 'add9',
     strings: ['x', 0, 2, 4, 2, 0], startFret: 1, barre: null,
     fingers: [{ string: 2, fret: 2, finger: 1 }, { string: 4, fret: 2, finger: 2 }, { string: 3, fret: 4, finger: 4 }],
   },
   // ── sus4 ──
   {
-    id: 'csus4', name: 'Csus4', formula: '1-4-5', category: 'SUS4', type: 'sus4',
+    id: 'csus4', name: 'Csus4', formula: '1-4-5', category: 'Open position', type: 'sus4',
     strings: ['x', 3, 3, 0, 1, 1], startFret: 1,
     barre: { fret: 1, fromString: 4, toString: 5 },
     fingers: [{ string: 1, fret: 3, finger: 3 }, { string: 2, fret: 3, finger: 4 }, { string: 4, fret: 1, finger: 1 }, { string: 5, fret: 1, finger: 1 }],
   },
   {
-    id: 'dsus4', name: 'Dsus4', formula: '1-4-5', category: 'SUS4', type: 'sus4',
+    id: 'dsus4', name: 'Dsus4', formula: '1-4-5', category: 'Open position', type: 'sus4',
     strings: ['x', 'x', 0, 2, 3, 3], startFret: 1, barre: null,
     fingers: [{ string: 3, fret: 2, finger: 1 }, { string: 4, fret: 3, finger: 2 }, { string: 5, fret: 3, finger: 3 }],
   },
   {
-    id: 'esus4', name: 'Esus4', formula: '1-4-5', category: 'SUS4', type: 'sus4',
+    id: 'esus4', name: 'Esus4', formula: '1-4-5', category: 'Open position', type: 'sus4',
     strings: [0, 2, 2, 2, 0, 0], startFret: 1, barre: null,
     fingers: [{ string: 1, fret: 2, finger: 1 }, { string: 2, fret: 2, finger: 2 }, { string: 3, fret: 2, finger: 3 }],
   },
   {
-    id: 'asus4', name: 'Asus4', formula: '1-4-5', category: 'SUS4', type: 'sus4',
+    id: 'asus4', name: 'Asus4', formula: '1-4-5', category: 'Open position', type: 'sus4',
     strings: ['x', 0, 2, 2, 3, 0], startFret: 1, barre: null,
     fingers: [{ string: 2, fret: 2, finger: 1 }, { string: 3, fret: 2, finger: 2 }, { string: 4, fret: 3, finger: 3 }],
   },
   {
-    id: 'gsus4', name: 'Gsus4', formula: '1-4-5', category: 'SUS4', type: 'sus4',
+    id: 'gsus4', name: 'Gsus4', formula: '1-4-5', category: 'Open position', type: 'sus4',
     strings: [3, 'x', 0, 0, 1, 3], startFret: 1, barre: null,
     fingers: [{ string: 0, fret: 3, finger: 3 }, { string: 4, fret: 1, finger: 1 }, { string: 5, fret: 3, finger: 4 }],
   },
   // ── 7sus4 ──
   {
-    id: 'a7sus4', name: 'A7sus4', formula: '1-4-5-♭7', category: '7SUS4', type: '7sus4',
+    id: 'a7sus4', name: 'A7sus4', formula: '1-4-5-♭7', category: 'Open position', type: '7sus4',
     strings: ['x', 0, 2, 0, 3, 0], startFret: 1, barre: null,
     fingers: [{ string: 2, fret: 2, finger: 2 }, { string: 4, fret: 3, finger: 3 }],
   },
   {
-    id: 'd7sus4', name: 'D7sus4', formula: '1-4-5-♭7', category: '7SUS4', type: '7sus4',
+    id: 'd7sus4', name: 'D7sus4', formula: '1-4-5-♭7', category: 'Open position', type: '7sus4',
     strings: ['x', 'x', 0, 2, 1, 3], startFret: 1, barre: null,
     fingers: [{ string: 4, fret: 1, finger: 1 }, { string: 3, fret: 2, finger: 2 }, { string: 5, fret: 3, finger: 4 }],
   },
   {
-    id: 'g7sus4', name: 'G7sus4', formula: '1-4-5-♭7', category: '7SUS4', type: '7sus4',
+    id: 'g7sus4', name: 'G7sus4', formula: '1-4-5-♭7', category: 'Open position', type: '7sus4',
     strings: [3, 'x', 0, 0, 1, 1], startFret: 1,
     barre: { fret: 1, fromString: 4, toString: 5 },
     fingers: [{ string: 0, fret: 3, finger: 3 }, { string: 4, fret: 1, finger: 1 }, { string: 5, fret: 1, finger: 1 }],
   },
   {
-    id: 'e7sus4', name: 'E7sus4', formula: '1-4-5-♭7', category: '7SUS4', type: '7sus4',
+    id: 'e7sus4', name: 'E7sus4', formula: '1-4-5-♭7', category: 'Open position', type: '7sus4',
     strings: [0, 2, 2, 2, 3, 0], startFret: 1, barre: null,
     fingers: [{ string: 1, fret: 2, finger: 1 }, { string: 2, fret: 2, finger: 2 }, { string: 3, fret: 2, finger: 3 }, { string: 4, fret: 3, finger: 4 }],
   },
   // ── aug ──
   {
-    id: 'caug', name: 'Caug', formula: '1-3-#5', category: 'AUGMENTED', type: 'aug',
+    id: 'caug', name: 'Caug', formula: '1-3-#5', category: 'Open position', type: 'aug',
     strings: ['x', 3, 2, 1, 1, 0], startFret: 1,
     barre: { fret: 1, fromString: 3, toString: 4 },
     fingers: [{ string: 1, fret: 3, finger: 3 }, { string: 2, fret: 2, finger: 2 }, { string: 3, fret: 1, finger: 1 }, { string: 4, fret: 1, finger: 1 }],
   },
   {
-    id: 'eaug', name: 'Eaug', formula: '1-3-#5', category: 'AUGMENTED', type: 'aug',
+    id: 'eaug', name: 'Eaug', formula: '1-3-#5', category: 'Open position', type: 'aug',
     strings: [0, 3, 2, 1, 1, 0], startFret: 1,
     barre: { fret: 1, fromString: 3, toString: 4 },
     fingers: [{ string: 1, fret: 3, finger: 3 }, { string: 2, fret: 2, finger: 2 }, { string: 3, fret: 1, finger: 1 }, { string: 4, fret: 1, finger: 1 }],
   },
   {
-    id: 'aaug', name: 'Aaug', formula: '1-3-#5', category: 'AUGMENTED', type: 'aug',
+    id: 'aaug', name: 'Aaug', formula: '1-3-#5', category: 'Open position', type: 'aug',
     strings: ['x', 0, 3, 2, 2, 1], startFret: 1, barre: null,
     fingers: [{ string: 5, fret: 1, finger: 1 }, { string: 3, fret: 2, finger: 2 }, { string: 4, fret: 2, finger: 3 }, { string: 2, fret: 3, finger: 4 }],
   },
   {
-    id: 'daug', name: 'Daug', formula: '1-3-#5', category: 'AUGMENTED', type: 'aug',
+    id: 'daug', name: 'Daug', formula: '1-3-#5', category: 'Open position', type: 'aug',
     strings: ['x', 'x', 0, 3, 3, 2], startFret: 1, barre: null,
     fingers: [{ string: 5, fret: 2, finger: 1 }, { string: 3, fret: 3, finger: 2 }, { string: 4, fret: 3, finger: 3 }],
   },
   // ── power (5) ──
   {
-    id: 'e5', name: 'E5', formula: '1-5', category: 'POWER', type: 'power',
+    id: 'e5', name: 'E5', formula: '1-5', category: 'Power chord shape', type: 'power',
     strings: [0, 2, 2, 'x', 'x', 'x'], startFret: 1, barre: null,
     fingers: [{ string: 1, fret: 2, finger: 1 }, { string: 2, fret: 2, finger: 2 }],
   },
   {
-    id: 'a5', name: 'A5', formula: '1-5', category: 'POWER', type: 'power',
+    id: 'a5', name: 'A5', formula: '1-5', category: 'Power chord shape', type: 'power',
     strings: ['x', 0, 2, 2, 'x', 'x'], startFret: 1, barre: null,
     fingers: [{ string: 2, fret: 2, finger: 1 }, { string: 3, fret: 2, finger: 2 }],
   },
   {
-    id: 'd5', name: 'D5', formula: '1-5', category: 'POWER', type: 'power',
+    id: 'd5', name: 'D5', formula: '1-5', category: 'Power chord shape', type: 'power',
     strings: ['x', 'x', 0, 2, 3, 'x'], startFret: 1, barre: null,
     fingers: [{ string: 3, fret: 2, finger: 1 }, { string: 4, fret: 3, finger: 2 }],
   },
   {
-    id: 'g5', name: 'G5', formula: '1-5', category: 'POWER', type: 'power',
+    id: 'g5', name: 'G5', formula: '1-5', category: 'Power chord shape', type: 'power',
     strings: [3, 5, 5, 'x', 'x', 'x'], startFret: 3, barre: null,
     fingers: [{ string: 0, fret: 3, finger: 1 }, { string: 1, fret: 5, finger: 3 }, { string: 2, fret: 5, finger: 4 }],
   },
   {
-    id: 'c5', name: 'C5', formula: '1-5', category: 'POWER', type: 'power',
+    id: 'c5', name: 'C5', formula: '1-5', category: 'Power chord shape', type: 'power',
     strings: ['x', 3, 5, 5, 'x', 'x'], startFret: 3, barre: null,
     fingers: [{ string: 1, fret: 3, finger: 1 }, { string: 2, fret: 5, finger: 3 }, { string: 3, fret: 5, finger: 4 }],
   },
   {
-    id: 'b5', name: 'B5', formula: '1-5', category: 'POWER', type: 'power',
+    id: 'b5', name: 'B5', formula: '1-5', category: 'Power chord shape', type: 'power',
     strings: ['x', 2, 4, 4, 'x', 'x'], startFret: 2, barre: null,
     fingers: [{ string: 1, fret: 2, finger: 1 }, { string: 2, fret: 4, finger: 3 }, { string: 3, fret: 4, finger: 4 }],
   },
   // ── dim7 ──
   {
-    id: 'cdim7', name: 'Cdim7', formula: '1-♭3-♭5-𝄫7', category: 'DIMINISHED', type: 'dim7',
+    id: 'cdim7', name: 'Cdim7', formula: '1-♭3-♭5-𝄫7', category: 'Movable shape', type: 'dim7',
     strings: ['x', 3, 4, 2, 4, 3], startFret: 2, barre: null,
     fingers: [{ string: 3, fret: 2, finger: 1 }, { string: 1, fret: 3, finger: 2 }, { string: 5, fret: 3, finger: 3 }, { string: 2, fret: 4, finger: 4 }],
   },
   {
-    id: 'fdim7', name: 'Fdim7', formula: '1-♭3-♭5-𝄫7', category: 'DIMINISHED', type: 'dim7',
+    id: 'fdim7', name: 'Fdim7', formula: '1-♭3-♭5-𝄫7', category: 'Movable shape', type: 'dim7',
     strings: ['x', 'x', 3, 4, 3, 4], startFret: 2, barre: null,
     fingers: [{ string: 2, fret: 3, finger: 1 }, { string: 4, fret: 3, finger: 2 }, { string: 3, fret: 4, finger: 3 }, { string: 5, fret: 4, finger: 4 }],
   },
@@ -424,32 +424,32 @@ const BARRE_CHORDS = (() => {
       const B = { fret: ef, fromString: 0, toString: 5 };
 
       // Major  [N N+2 N+2 N+1 N N]
-      out.push({ id:`${rid}-maj-e`, name:`${root} Major`, formula:'1-3-5', category:'BARRE', type:'Major',
+      out.push({ id:`${rid}-maj-e`, name:`${root} Major`, formula:'1-3-5', category:'Barre shape', type:'Major',
         strings:[ef,ef+2,ef+2,ef+1,ef,ef], startFret:ef, barre:B,
         fingers:[{string:3,fret:ef+1,finger:2},{string:2,fret:ef+2,finger:3},{string:1,fret:ef+2,finger:4}] });
 
       // Minor  [N N+2 N+2 N N N]
-      out.push({ id:`${rid}-min-e`, name:`${root} Minor`, formula:'1-♭3-5', category:'BARRE', type:'minor',
+      out.push({ id:`${rid}-min-e`, name:`${root} Minor`, formula:'1-♭3-5', category:'Barre shape', type:'minor',
         strings:[ef,ef+2,ef+2,ef,ef,ef], startFret:ef, barre:B,
         fingers:[{string:1,fret:ef+2,finger:3},{string:2,fret:ef+2,finger:4}] });
 
       // Dom7   [N N+2 N N+1 N N]
-      out.push({ id:`${rid}-7-e`, name:`${root}7`, formula:'1-3-5-♭7', category:'DOMINANT', type:'dom7',
+      out.push({ id:`${rid}-7-e`, name:`${root}7`, formula:'1-3-5-♭7', category:'Barre shape', type:'dom7',
         strings:[ef,ef+2,ef,ef+1,ef,ef], startFret:ef, barre:B,
         fingers:[{string:1,fret:ef+2,finger:3},{string:3,fret:ef+1,finger:2}] });
 
       // Maj7   [N N+2 N+1 N+1 N N]
-      out.push({ id:`${rid}-maj7-e`, name:`${root}maj7`, formula:'1-3-5-7', category:'MAJOR 7TH', type:'maj7',
+      out.push({ id:`${rid}-maj7-e`, name:`${root}maj7`, formula:'1-3-5-7', category:'Barre shape', type:'maj7',
         strings:[ef,ef+2,ef+1,ef+1,ef,ef], startFret:ef, barre:B,
         fingers:[{string:1,fret:ef+2,finger:3},{string:2,fret:ef+1,finger:2},{string:3,fret:ef+1,finger:2}] });
 
       // m7     [N N+2 N N N N]  — b7 from barre on D string ✓
-      out.push({ id:`${rid}-m7-e`, name:`${root}m7`, formula:'1-♭3-5-♭7', category:'MINOR 7TH', type:'m7',
+      out.push({ id:`${rid}-m7-e`, name:`${root}m7`, formula:'1-♭3-5-♭7', category:'Barre shape', type:'m7',
         strings:[ef,ef+2,ef,ef,ef,ef], startFret:ef, barre:B,
         fingers:[{string:1,fret:ef+2,finger:3}] });
 
       // 7sus4  [N N+2 N+2 N+2 N+3 N]
-      out.push({ id:`${rid}-7sus4-e`, name:`${root}7sus4`, formula:'1-4-5-♭7', category:'7SUS4', type:'7sus4',
+      out.push({ id:`${rid}-7sus4-e`, name:`${root}7sus4`, formula:'1-4-5-♭7', category:'Barre shape', type:'7sus4',
         strings:[ef,ef+2,ef+2,ef+2,ef+3,ef], startFret:ef, barre:B,
         fingers:[{string:1,fret:ef+2,finger:2},{string:2,fret:ef+2,finger:3},{string:3,fret:ef+2,finger:3},{string:4,fret:ef+3,finger:4}] });
     }
@@ -459,32 +459,32 @@ const BARRE_CHORDS = (() => {
       const B = { fret: af, fromString: 1, toString: 5 };
 
       // Major  [x N N+2 N+2 N+2 N]
-      out.push({ id:`${rid}-maj-a`, name:`${root} Major`, formula:'1-3-5', category:'BARRE', type:'Major',
+      out.push({ id:`${rid}-maj-a`, name:`${root} Major`, formula:'1-3-5', category:'Barre shape', type:'Major',
         strings:['x',af,af+2,af+2,af+2,af], startFret:af, barre:B,
         fingers:[{string:2,fret:af+2,finger:2},{string:3,fret:af+2,finger:3},{string:4,fret:af+2,finger:4}] });
 
       // Minor  [x N N+2 N+2 N+1 N]
-      out.push({ id:`${rid}-min-a`, name:`${root} Minor`, formula:'1-♭3-5', category:'BARRE', type:'minor',
+      out.push({ id:`${rid}-min-a`, name:`${root} Minor`, formula:'1-♭3-5', category:'Barre shape', type:'minor',
         strings:['x',af,af+2,af+2,af+1,af], startFret:af, barre:B,
         fingers:[{string:4,fret:af+1,finger:2},{string:2,fret:af+2,finger:3},{string:3,fret:af+2,finger:4}] });
 
       // Dom7   [x N N+2 N N+2 N]
-      out.push({ id:`${rid}-7-a`, name:`${root}7`, formula:'1-3-5-♭7', category:'DOMINANT', type:'dom7',
+      out.push({ id:`${rid}-7-a`, name:`${root}7`, formula:'1-3-5-♭7', category:'Barre shape', type:'dom7',
         strings:['x',af,af+2,af,af+2,af], startFret:af, barre:B,
         fingers:[{string:2,fret:af+2,finger:2},{string:4,fret:af+2,finger:4}] });
 
       // Maj7   [x N N+2 N+1 N+2 N]
-      out.push({ id:`${rid}-maj7-a`, name:`${root}maj7`, formula:'1-3-5-7', category:'MAJOR 7TH', type:'maj7',
+      out.push({ id:`${rid}-maj7-a`, name:`${root}maj7`, formula:'1-3-5-7', category:'Barre shape', type:'maj7',
         strings:['x',af,af+2,af+1,af+2,af], startFret:af, barre:B,
         fingers:[{string:3,fret:af+1,finger:2},{string:2,fret:af+2,finger:3},{string:4,fret:af+2,finger:4}] });
 
       // m7     [x N N+2 N N+1 N]
-      out.push({ id:`${rid}-m7-a`, name:`${root}m7`, formula:'1-♭3-5-♭7', category:'MINOR 7TH', type:'m7',
+      out.push({ id:`${rid}-m7-a`, name:`${root}m7`, formula:'1-♭3-5-♭7', category:'Barre shape', type:'m7',
         strings:['x',af,af+2,af,af+1,af], startFret:af, barre:B,
         fingers:[{string:2,fret:af+2,finger:3},{string:4,fret:af+1,finger:2}] });
 
       // 7sus4  [x N N+2 N N+3 N]
-      out.push({ id:`${rid}-7sus4-a`, name:`${root}7sus4`, formula:'1-4-5-♭7', category:'7SUS4', type:'7sus4',
+      out.push({ id:`${rid}-7sus4-a`, name:`${root}7sus4`, formula:'1-4-5-♭7', category:'Barre shape', type:'7sus4',
         strings:['x',af,af+2,af,af+3,af], startFret:af, barre:B,
         fingers:[{string:2,fret:af+2,finger:2},{string:4,fret:af+3,finger:4}] });
     }
@@ -511,8 +511,6 @@ const TYPE_MAP = {
   'dim7':   'dim7',
   'm7♭5':   'm7b5',
 };
-
-const toSentenceCase = (s) => s.charAt(0).toUpperCase() + s.slice(1).toLowerCase();
 
 const ROOT_NOTES = ['C','C#','D','D#','E','F','F#','G','G#','A','A#','B'];
 const FLAT_EQUIV = { 'C#':'D♭', 'D#':'E♭', 'F#':'G♭', 'G#':'A♭', 'A#':'B♭' };
@@ -562,8 +560,8 @@ function ChordCard({ chord }) {
     <div className="bg-surface-container-high rounded-xl p-5 flex flex-col gap-3">
       <div>
         <h3 className="text-headline-md font-headline-md text-on-surface">{chord.name}</h3>
-        <span className="text-label-caps font-label-caps text-[#4dd0e1] tracking-wider text-[11px] mt-0.5 block">
-          {toSentenceCase(chord.category)}
+        <span className="text-label-caps font-label-caps text-[#4dd0e1] text-[11px] mt-0.5 block">
+          {chord.category}
         </span>
         <span className="text-mono-data font-mono-data text-on-surface-variant text-[10px] mt-0.5 block">
           {chord.formula}
