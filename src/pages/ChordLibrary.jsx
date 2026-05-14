@@ -557,7 +557,7 @@ function FilterRow({ label, options, selected, onSelect, labelFn }) {
             className={`text-[14px] whitespace-nowrap shrink-0 transition-colors leading-none rounded-full px-2 py-1.5 ${
               selected === opt
                 ? 'bg-primary text-white font-bold'
-                : 'text-on-surface hover:text-on-surface font-normal'
+                : 'text-on-surface-variant hover:text-on-surface font-normal'
             }`}
           >
             {labelFn ? labelFn(opt) : opt}
@@ -691,7 +691,7 @@ export default function ChordLibrary() {
         </div>
 
         {filtered.length > 0 ? (
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4">
             {filtered.map(chord => (
               <ChordCard key={chord.id} chord={chord} />
             ))}
