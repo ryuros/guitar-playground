@@ -545,10 +545,10 @@ const getChordRoot = (name) => {
 };
 
 // ── Filter row ──────────────────────────────────────────────────────────────
-function FilterRow({ label, options, selected, onSelect, labelFn }) {
+function FilterRow({ label: _label, options, selected, onSelect, labelFn }) {
   return (
     <div className="flex items-center gap-3 py-1">
-      <span className="text-[12px] font-label-caps text-on-surface-variant shrink-0 w-12">{label}</span>
+      {/* <span className="text-[12px] font-label-caps text-on-surface-variant shrink-0 w-12">{label}</span> */}
       <div className="flex items-center overflow-x-auto pb-0.5 min-w-0 flex-1" style={{ scrollbarWidth: 'none', gap: 'calc(var(--spacing) * 2)' }}>
         {options.map(opt => (
           <button
@@ -647,10 +647,10 @@ export default function ChordLibrary() {
 
   return (
     <div className="flex-1 flex flex-col h-full overflow-y-auto">
-      <div className="p-4 sm:p-6 md:p-8 max-w-[1280px] mx-auto w-full">
+      <div className="px-4 pt-6 pb-4 sm:p-6 md:p-8 max-w-[1280px] mx-auto w-full">
 
         {/* Header */}
-        <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between mb-6">
+        {/* <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between mb-6">
           <h1 className="text-[24px] md:text-[32px] font-headline-lg text-on-surface">Chord Library</h1>
           <div className="flex items-center gap-2 bg-surface-container rounded-full px-4 py-1.5 focus-within:ring-1 focus-within:ring-outline transition-colors w-full sm:w-auto">
             <span className="material-symbols-outlined text-[16px] text-on-surface-variant shrink-0" style={{ fontVariationSettings: "'wght' 300, 'OPSZ' 16" }}>search</span>
@@ -667,7 +667,7 @@ export default function ChordLibrary() {
               </button>
             )}
           </div>
-        </div>
+        </div> */}
 
         {/* 3-row cascade filters */}
         <div className="mb-6 overflow-hidden">
@@ -679,14 +679,14 @@ export default function ChordLibrary() {
         {/* Result count + reset */}
         <div className="flex items-center justify-between mb-4">
           <span className="text-[13px] text-on-surface-variant">
-            총 <span className="text-primary font-bold">{filtered.length}</span>개의 코드가 검색되었습니다.
+            <span className="text-primary font-bold">{filtered.length}</span> chords found.
           </span>
           <button
             onClick={() => { setSelectedRoot('All'); setSelectedQuality('All'); setSelectedPosition('All'); }}
             className="flex items-center gap-1 text-[13px] text-on-surface-variant hover:text-on-surface transition-colors"
           >
             <span className="material-symbols-outlined text-[14px]" style={{ fontVariationSettings: "'wght' 300, 'OPSZ' 14" }}>refresh</span>
-            선택 초기화
+            Reset filters
           </button>
         </div>
 

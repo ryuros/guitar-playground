@@ -6,10 +6,10 @@ const NAV_ITEMS = [
   { to: '/',              icon: 'av_timer',        label: 'Metronome' },
   { to: '/chord-library', icon: 'library_music',   label: 'Chord Library' },
   { to: '/fretboard',     icon: 'straighten',      label: 'Fretboard' },
-  { to: '/scales',        icon: 'architecture',    label: 'Scale Builder' },
-  { to: '/chords',        icon: 'layers',          label: 'Chord Builder' },
-  { to: '/voicings',      icon: 'search_insights', label: 'Voicing Finder' },
-  { to: '/quiz',          icon: 'quiz',            label: 'Quiz' },
+  { to: '/theory',        icon: 'school',          label: 'Theory' },
+  // { to: '/scales',        icon: 'architecture',    label: 'Scale Builder' },
+  // { to: '/chords',        icon: 'layers',          label: 'Chord Builder' },
+  // { to: '/voicings',      icon: 'search_insights', label: 'Voicing Finder' },
 ];
 
 export default function Layout({ children }) {
@@ -55,9 +55,9 @@ export default function Layout({ children }) {
       <div className="flex-1 flex flex-col overflow-hidden">
         {/* Mobile header */}
         <header className="md:hidden flex justify-between items-center px-4 h-16 bg-surface-container shrink-0 sticky top-0 z-10">
-          <span className="text-[18px] font-label-caps text-on-surface-variant tracking-widest">Guitar Playground</span>
+          <span className="text-[16px] font-bold text-white tracking-wide">Guitar Playground</span>
           <div className="flex items-center space-x-3">
-            <button onClick={() => setMobileOpen(true)} className="text-on-surface-variant">
+            <button onClick={() => setMobileOpen(true)} className="text-white">
               <span className="material-symbols-outlined">menu</span>
             </button>
           </div>

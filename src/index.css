@@ -1,4 +1,4 @@
-@import url('https://cdn.jsdelivr.net/npm/@fontsource/chiron-goround-tc@5.2.4/index.min.css');
+@import url('https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap');
 @import "tailwindcss";
 
@@ -44,13 +44,13 @@
   --color-surface-tint: #0481FF;
 
   /* ── Font Families ── */
-  --font-headline-md: "Chiron GoRound TC", sans-serif;
-  --font-headline-lg: "Chiron GoRound TC", sans-serif;
-  --font-headline-lg-mobile: "Chiron GoRound TC", sans-serif;
-  --font-label-caps: "Chiron GoRound TC", sans-serif;
-  --font-body-md: "Chiron GoRound TC", sans-serif;
-  --font-body-lg: "Chiron GoRound TC", sans-serif;
-  --font-mono-data: "Chiron GoRound TC", sans-serif;
+  --font-headline-md: "Google Sans", sans-serif;
+  --font-headline-lg: "Google Sans", sans-serif;
+  --font-headline-lg-mobile: "Google Sans", sans-serif;
+  --font-label-caps: "Google Sans", sans-serif;
+  --font-body-md: "Google Sans", sans-serif;
+  --font-body-lg: "Google Sans", sans-serif;
+  --font-mono-data: "Google Sans", sans-serif;
 
   /* ── Font Sizes ── */
   --text-headline-lg: 32px;
@@ -90,7 +90,7 @@ body {
   margin: 0;
   background-color: #121414;
   color: #e2e2e2;
-  font-family: "Chiron GoRound TC", sans-serif;
+  font-family: "Google Sans", sans-serif;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -138,4 +138,30 @@ select {
 }
 select option {
   background-color: #1e2020;
+}
+
+/* ── Volume slider ── */
+.volume-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 3px;
+  border-radius: 9999px;
+  outline: none;
+  cursor: pointer;
+}
+.volume-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #ffffff;
+  cursor: pointer;
+}
+.volume-slider::-moz-range-thumb {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: none;
+  cursor: pointer;
 }

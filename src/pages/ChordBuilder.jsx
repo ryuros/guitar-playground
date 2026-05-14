@@ -104,65 +104,47 @@ export default function ChordBuilder() {
           </div>
         </div>
 
+        {/* 필터 탭 */}
+        <div className="space-y-0 border border-surface-variant rounded-xl overflow-hidden">
+          {/* 루트음 */}
+          <div className="flex items-center px-4 py-2 border-b border-surface-variant">
+            <span className="text-[11px] font-label-caps text-on-surface-variant shrink-0 w-14">Root</span>
+            <div className="flex items-center overflow-x-auto min-w-0 flex-1" style={{ scrollbarWidth: 'none', gap: 'calc(var(--spacing) * 2)' }}>
+              {ROOT_NOTES.map(n => (
+                <button
+                  key={n}
+                  onClick={() => { setRoot(n); setAccidental(''); }}
+                  className={`text-[14px] whitespace-nowrap shrink-0 transition-colors leading-none rounded-full px-2 py-1.5 ${
+                    root === n && accidental === ''
+                      ? 'bg-primary text-white font-bold'
+                      : 'text-on-surface-variant hover:text-on-surface font-normal'
+                  }`}
+                >{n}</button>
+              ))}
+            </div>
+          </div>
+          {/* 코드 종류 */}
+          <div className="flex items-center px-4 py-2">
+            <span className="text-[11px] font-label-caps text-on-surface-variant shrink-0 w-14">Quality</span>
+            <div className="flex items-center overflow-x-auto min-w-0 flex-1" style={{ scrollbarWidth: 'none', gap: 'calc(var(--spacing) * 2)' }}>
+              {QUALITIES.map(q => (
+                <button
+                  key={q}
+                  onClick={() => setQuality(q)}
+                  className={`text-[14px] whitespace-nowrap shrink-0 transition-colors leading-none rounded-full px-2 py-1.5 ${
+                    quality === q
+                      ? 'bg-primary text-white font-bold'
+                      : 'text-on-surface-variant hover:text-on-surface font-normal'
+                  }`}
+                >{q}</button>
+              ))}
+            </div>
+          </div>
+        </div>
+
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
           {/* 왼쪽: 컨트롤 (4 cols) */}
           <div className="lg:col-span-4 space-y-6">
-            {/* 루트음 */}
-            <div className="bg-surface-container p-6 rounded-xl border border-surface-variant flex flex-col gap-5">
-              <div className="space-y-3">
-                <label className="text-label-caps font-label-caps text-on-surface-variant block">루트음</label>
-                <div className="grid grid-cols-7 gap-1.5">
-                  {ROOT_NOTES.map(n => (
-                    <button
-                      key={n}
-                      onClick={() => { setRoot(n); setAccidental(''); }}
-                      className={`h-10 rounded-full font-mono-data text-sm font-bold transition-all ${
-                        root === n && accidental === ''
-                          ? 'bg-primary text-on-primary shadow-[0_0_8px_rgba(4,129,255,0.4)]'
-                          : 'bg-surface-variant text-on-surface border border-outline-variant hover:bg-surface-bright'
-                      }`}
-                    >
-                      {n}
-                    </button>
-                  ))}
-                </div>
-                <div className="flex gap-2 pt-1">
-                  {['♭','♮','♯'].map(a => (
-                    <button
-                      key={a}
-                      onClick={() => setAccidental(a === '♮' ? '' : (accidental === a ? '' : a))}
-                      className={`flex-1 py-1.5 rounded-full font-mono-data text-sm border transition-colors ${
-                        (a === '♮' && accidental === '') || accidental === a
-                          ? 'bg-surface-variant text-on-surface border-primary'
-                          : 'bg-surface-variant text-on-surface border-outline-variant hover:bg-surface-bright'
-                      } ${a === '♮' ? 'opacity-60' : ''}`}
-                    >
-                      {a}
-                    </button>
-                  ))}
-                </div>
-              </div>
-
-              <div className="w-full h-px bg-surface-variant" />
-
-              {/* 코드 종류 */}
-              <div className="space-y-3">
-                <label className="text-label-caps font-label-caps text-on-surface-variant block">코드 종류</label>
-                <div className="relative">
-                  <select
-                    value={quality}
-                    onChange={e => setQuality(e.target.value)}
-                    className="w-full bg-surface-dim text-on-surface font-mono-data text-sm rounded-full p-3 appearance-none outline-none"
-                  >
-                    {QUALITIES.map(q => <option key={q}>{q}</option>)}
-                  </select>
-                  <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-on-surface-variant">
-                    <span className="material-symbols-outlined text-[18px]">expand_more</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
             {/* 확장 및 변형 */}
             <div className="bg-surface-container p-6 rounded-xl border border-surface-variant space-y-3">
               <h3 className="text-label-caps font-label-caps text-on-surface-variant mb-3">확장 및 변형</h3>
