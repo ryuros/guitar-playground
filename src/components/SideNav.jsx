@@ -5,7 +5,7 @@ const NAV_ITEMS = [
   { to: '/',              icon: 'av_timer',        label: 'Metronome' },
   { to: '/chord-library', icon: 'library_music',   label: 'Chord Library' },
   { to: '/fretboard',     icon: 'straighten',      label: 'Fretboard' },
-  // { to: '/theory',        icon: 'school',          label: 'Theory' },
+  { to: '/theory',        icon: 'school',          label: 'Theory' },
   // { to: '/scales',        icon: 'architecture',    label: 'Scale Builder' },
   // { to: '/chords',        icon: 'layers',          label: 'Chord Builder' },
   // { to: '/voicings',      icon: 'search_insights', label: 'Voicing Finder' },
