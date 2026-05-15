@@ -387,10 +387,10 @@ export default function Metronome() {
     <div className="flex-1 flex flex-col h-full overflow-hidden" onClick={() => { setShowTempoMenu(false); setShowTimeSigMenu(false); setShowNoteMenu(false); }}>
       {/* Backing Track */}
       <div className="bg-[#1a1c1c] border-b border-[#343737] shrink-0" onClick={e => e.stopPropagation()}>
-        <div className="flex flex-wrap items-center gap-x-4 gap-y-2 px-6 py-2 min-h-12">
+        <div className="px-6 py-2">
           <button
             onClick={toggleBacking}
-            className={`shrink-0 text-sm font-mono-data transition-colors ${
+            className={`text-sm font-mono-data transition-colors ${
               backingOn ? 'text-primary' : 'text-[#6b7280] hover:text-[#e2e2e2]'
             }`}
           >
@@ -398,7 +398,7 @@ export default function Metronome() {
           </button>
 
           {backingOn && (
-            <>
+            <div className="flex items-center gap-3 mt-2">
               <div className="flex gap-1.5 flex-wrap">
                 {DRUM_PATTERNS.map(p => (
                   <button
@@ -412,7 +412,7 @@ export default function Metronome() {
                   >{p.label}</button>
                 ))}
               </div>
-              <div className="flex items-center gap-2 md:ml-auto shrink-0">
+              <div className="flex items-center gap-2 ml-auto shrink-0">
                 <span className="material-symbols-outlined text-[14px] text-[#6b7280]" style={{ fontVariationSettings: "'wght' 300" }}>volume_up</span>
                 <input
                   type="range" min="0" max="1" step="0.05"
@@ -422,7 +422,7 @@ export default function Metronome() {
                   style={{ background: `linear-gradient(to right, #fff 0%, #fff ${drumVolume * 100}%, #444 ${drumVolume * 100}%, #444 100%)` }}
                 />
               </div>
-            </>
+            </div>
           )}
         </div>
       </div>
